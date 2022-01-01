@@ -1,4 +1,4 @@
 function startGame() {
-  console.log("starting game");
-  window.location.href = "./escape"
+  sessionStorage["start_time"] = new Date();
+  window.location.href = "/escape";
 }
