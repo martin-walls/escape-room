@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="escape.css">
   </head>
   <body>
-    <h1 id="title">
-      ESCAPE ROOM
-    </h1>
-    <form action="/escape" method="POST">
-      <input type="text" id="codeinput" name="code" placeholder="ENTER CODE">
-    </form>
-    <p>
-    </p>
+    <!-- <h1 id="title"> -->
+    <!--   ESCAPE ROOM -->
+    <!-- </h1> -->
+    <!-- <form action="/escape" method="POST"> -->
+    <div class="container">
+      <div class="center">
+        <input type="text" id="codeinput" name="code" placeholder="ENTER CODE" onkeydown="validate(this)" autocomplete="off">
+        <!-- </form> -->
+        <div id="failed-attempt" style="visibility: hidden">
+          <p>You guessed: <span id="previous-guess"></span></p>
+          <p>Better luck next time</p>
+        </div>
+      </div>
+    </div>
+    <div id="stats">
+      <p>#guesses: <span id="num-guesses">0</span></p>
+      <p>#hints used: <span id="num-hints">0</span></p>
+    </div>
   </body>
-  <script>
-    sessionStorage["test"] = "123";
-  </script>
+  <script src="escape.js"></script>
 </html>

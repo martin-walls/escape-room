@@ -4,13 +4,35 @@
     <meta charset="utf-8">
     <title>Start</title>
     <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="start.css">
   </head>
   <body>
-    <h1>
-      START
-    </h1>
+    <!-- <h1> -->
+    <!--   START -->
+    <!-- </h1> -->
     <!-- <form action="/startgame" method="POST"> -->
-    <button onclick="startGame()">START</button>
+    <div class="container">
+      <div class="center">
+        <div id="instructions">
+          <h1>Instructions</h1>
+          <p>
+            Welcome.
+            It is your job to figure out the code word to escape.
+            You are competing to escape in the fastest time.
+            <br><br>
+            - You may use any methods at your disposal within this room.
+            <br><br>
+            - Hints will be available for each challenge once the game has begin.
+            Each hint will add an extra minute to your time.
+            <br><br>
+            - Any incorrect guesses will add an extra minute to your time.
+            <br><br>
+            - The timer will begin as soon as you press START below.
+          </p>
+        </div>
+        <button id="start-btn" onclick="startGame()">START</button>
+      </div>
+    </div>
     <!-- </form> -->
   </body>
   <script src="index.js"></script>
