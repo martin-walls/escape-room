@@ -3,6 +3,9 @@
 /*   padding-bottom: 30px; */
 /* } */
 
+.center-lower {
+  top: 60%;
+}
 
 #codeinput {
   background: none;
@@ -23,7 +26,94 @@
 
 #stats {
   position: absolute;
-  bottom: 0px;
+  bottom: 40px;
   width: 100%;
-  padding-bottom: 40px;
+}
+
+#top-container {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+}
+
+#hints-container {
+  width: 20rem;
+  border: 2px solid #00ff41;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  padding: 0.5rem 0px;
+}
+
+.hints-title {
+  width: 100%;
+  margin: 0.5rem;
+  font-size: 120%;
+}
+
+.hint-item {
+  border: 2px solid rgba(0, 255, 65, 0.5);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+
+.hint-item:hover {
+  background: rgba(0, 255, 65, 0.2);
+  cursor: pointer;
+}
+
+.hint-item-used {
+  background: rgba(0,255,65,0.1);
+  border-color: rgba(0,255,65,0.4);
+  color: rgba(0,255,65,0.4);
+}
+
+.hint-show {
+  border: 2px solid #00FF41;
+  background: rgba(13, 2, 8, 0.85);
+  display: none;
+  padding: 1rem 2rem;
+}
+
+#hint-show-bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(13,2,8, 0.85);
+}
+
+.hint-image {
+  height: 40vh;
+}
+
+.hint-show .close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-family: monospace;
+  padding: 0.5rem 1rem;
+}
+
+#timer-container {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  text-align: right;
+}
+
+#timer-time {
+  font-size: 120%;
+}
+
+.timer-penalty {
+  color: orange;
+  font-size: 90%;
 }

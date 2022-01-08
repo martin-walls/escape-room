@@ -1,6 +1,7 @@
-const CODE_WORD = "GEBURTSTAG";
+const CODE_WORD = "SECRET";
 
 updateGuessAndHintCount();
+updateTimer();
 
 function validate(inputbox) {
   if (event.key === "Enter") {
@@ -33,7 +34,65 @@ function validate(inputbox) {
 }
 
 function updateGuessAndHintCount() {
-  document.getElementById("num-guesses").textContent = JSON.parse(sessionStorage["num_guesses"]);
+  const numGuesses = JSON.parse(sessionStorage["num_guesses"]);
+  document.getElementById("num-guesses").textContent = numGuesses;
+  document.getElementById("guess-penalty-value").textContent = numGuesses + ":00";
 
-  document.getElementById("num-hints").textContent = JSON.parse(sessionStorage["num_hints_used"]);
+  const numHints = JSON.parse(sessionStorage["num_hints_used"]);
+  document.getElementById("num-hints").textContent = numHints;
+  document.getElementById("hints-penalty-value").textContent = numHints + ":00";
+
+  const usedHints = JSON.parse(sessionStorage["used_hints"]);
+  for (let i = 0; i < usedHints.length; i++) {
+    document.getElementById("hintBtn" + usedHints[i]).classList.add("hint-item-used");
+  }
+}
+
+function showHint(hintId) {
+  const hintBox = document.getElementById("hintShow" + hintId);
+  hintBox.style.display = "block";
+  document.getElementById("hint-show-bg").style.display = "block";
+  const usedHints = JSON.parse(sessionStorage["used_hints"]);
+  if (!usedHints.includes(hintId)) {
+    usedHints.push(hintId);
+    sessionStorage["used_hints"] = JSON.stringify(usedHints);
+    sessionStorage["num_hints_used"] = JSON.parse(sessionStorage["num_hints_used"]) + 1;
+
+    updateGuessAndHintCount();
+  }
+}
+
+function hideHint() {
+  const hints = document.getElementsByClassName("hint-show");
+  for (let i = 0; i < hints.length; i++) {
+    hints[i].style.display = "none";
+  }
+  document.getElementById("hint-show-bg").style.display = "none";
+}
+
+function updateTimer() {
+  const now = new Date();
+  const start_time = new Date(sessionStorage["start_time"]);
+  // elapsed time in seconds
+  const elapsed_time = Math.round((now - start_time) / 1000);
+
+  const numGuesses = JSON.parse(sessionStorage["num_guesses"]);
+  const numHints = JSON.parse(sessionStorage["num_hints_used"]);
+
+  const seconds = elapsed_time % 60;
+  let minutes = (elapsed_time - seconds) / 60;
+
+  minutes += numGuesses + numHints;
+
+  document.getElementById("timer-mins").textContent = leftPadZeros(minutes);
+  document.getElementById("timer-secs").textContent = leftPadZeros(seconds);
+
+  setTimeout(updateTimer, 300);
+}
+
+function leftPadZeros(x) {
+  if (x < 10) {
+    return "0" + x;
+  }
+  return x;
 }

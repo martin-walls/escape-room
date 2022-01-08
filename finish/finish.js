@@ -7,12 +7,28 @@ if (elapsed_time < 0) {
 }
 
 // ms -> s
-elapsed_time = elapsed_time / 1000;
-elapsed_time = Math.round(elapsed_time);
-document.getElementById("total-time").textContent = elapsed_time;
+elapsed_time = Math.round(elapsed_time / 1000);
 
 const numGuesses = JSON.parse(sessionStorage["num_guesses"]);
+const numHints = JSON.parse(sessionStorage["num_hints_used"]);
+
+let seconds = elapsed_time % 60;
+let minutes = Math.floor(elapsed_time / 60) % 60;
+const hours = Math.floor(elapsed_time / 3600);
+minutes += numGuesses + numHints;
+
+seconds = leftPadZeros(seconds);
+minutes = leftPadZeros(minutes);
+
+document.getElementById("total-time").textContent = (hours > 0 ? hours + ":" : "") + minutes + ":" + seconds;
+
 document.getElementById("num-guesses").textContent = numGuesses;
 
-const numHints = JSON.parse(sessionStorage["num_hints_used"]);
 document.getElementById("num-hints").textContent = numHints;
+
+function leftPadZeros(x) {
+  if (x < 10) {
+    return "0" + x;
+  }
+  return x;
+}

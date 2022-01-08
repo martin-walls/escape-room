@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- ┌─────────────┐ -->
+<!-- │ Escape page │ -->
+<!-- └─────────────┘ -->
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,24 +10,146 @@
     <link rel="stylesheet" href="escape.css">
   </head>
   <body>
-    <!-- <h1 id="title"> -->
-    <!--   ESCAPE ROOM -->
-    <!-- </h1> -->
-    <!-- <form action="/escape" method="POST"> -->
-    <div class="container">
-      <div class="center">
+    <div class="center-container">
+      <div class="center center-lower">
         <input type="text" id="codeinput" name="code" placeholder="ENTER CODE" onkeydown="validate(this)" autocomplete="off">
-        <!-- </form> -->
         <div id="failed-attempt" style="visibility: hidden">
           <p>You guessed: <span id="previous-guess"></span></p>
           <p>Better luck next time</p>
         </div>
       </div>
     </div>
+    <div id="top-container">
+      <div id="hints-container">
+        <div class="hints-title">Hints</div>
+        <div id="hintBtn1" class="hint-item" onclick="showHint(1)">1</div>
+        <div id="hintBtn2" class="hint-item" onclick="showHint(2)">2</div>
+        <div id="hintBtn3" class="hint-item" onclick="showHint(3)">3</div>
+        <div id="hintBtn4" class="hint-item" onclick="showHint(4)">4</div>
+        <div id="hintBtn5" class="hint-item" onclick="showHint(5)">5</div>
+        <div id="hintBtn6" class="hint-item" onclick="showHint(6)">6</div>
+        <div id="hintBtn7" class="hint-item" onclick="showHint(7)">7</div>
+        <div id="hintBtn8" class="hint-item" onclick="showHint(8)">8</div>
+        <div id="hintBtn9" class="hint-item" onclick="showHint(9)">9</div>
+        <div id="hintBtn10" class="hint-item" onclick="showHint(10)">10</div>
+      </div>
+    </div>
     <div id="stats">
       <p>#guesses: <span id="num-guesses">0</span></p>
       <p>#hints used: <span id="num-hints">0</span></p>
     </div>
+    <div id="timer-container">
+      <div id="timer-time">
+        <span id="timer-mins">00</span>:<span id="timer-secs">00</span>
+      </div>
+      <div class="timer-penalty" id="guess-penalty">
+        (Guesses +<span id="guess-penalty-value">00:00</span>)
+      </div>
+      <div class="timer-penalty" id="hints-penalty">
+        (Hints +<span id="hints-penalty-value">00:00</span>)
+      </div>
+    </div>
+    <div id="hint-show-bg" onclick="hideHint()">
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 1 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow1">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 1</h2>
+        <p class="hint-show-body">
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 2 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow2">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 2</h2>
+        <p class="hint-show-body">
+          Oops, I dropped my deck of cards; I think I found them all though.
+          <br>
+          I put them into rows just to check...
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 3 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow3">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 3</h2>
+        <p class="hint-show-body">
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 4 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow4">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 4</h2>
+        <p class="hint-show-body">
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 5 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow5">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 5</h2>
+        <p class="hint-show-body">
+          1819; 1901; 63.5 years;
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 6 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow6">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 6</h2>
+        <p class="hint-show-body">
+          <img src="../images/caesar_bust.png" class="hint-image"/>
+          <br>
+          "Hmmm, this code looks familiar"
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 7 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow7">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 7</h2>
+        <p class="hint-show-body">
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 8 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow8">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 8</h2>
+        <p class="hint-show-body">
+          Can you spot a shape?
+        </p>
+      </div>
+      <!-- ┌────────┐ -->
+      <!-- │ Hint 9 │ -->
+      <!-- └────────┘ -->
+      <div class="hint-show center" id="hintShow9">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 9</h2>
+        <p class="hint-show-body">
+        </p>
+      </div>
+      <!-- ┌─────────┐ -->
+      <!-- │ Hint 10 │ -->
+      <!-- └─────────┘ -->
+      <div class="hint-show center" id="hintShow10">
+        <span class="close-btn" onclick="hideHint()">&times;</span>
+        <h2 class="hint-show-title">Hint 10</h2>
+        <p class="hint-show-body">
+        </p>
+      </div>
+    </div> <!-- hint-show-bg -->
+
   </body>
   <script src="escape.js"></script>
 </html>
