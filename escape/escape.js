@@ -49,6 +49,24 @@ function updateGuessAndHintCount() {
 }
 
 function showHint(hintId) {
+  // don't show confirmation if hint has already been used
+  const usedHints = JSON.parse(sessionStorage["used_hints"]);
+  if (usedHints.includes(hintId)) {
+    showHintConfirmed(hintId);
+    return;
+  }
+  // show confirmation
+  document.getElementById("hint-confirmation").style.display = "block";
+  document.getElementById("hint-show-bg").style.display = "block";
+  // set hintId in title
+  document.getElementById("hint-confirmation-hintid").textContent = hintId;
+  // set onclick functions for dialog buttons
+  document.getElementById("confirmation-btn-no").onclick = () => hideHint();
+  document.getElementById("confirmation-btn-yes").onclick = () => showHintConfirmed(hintId);
+}
+
+function showHintConfirmed(hintId) {
+  document.getElementById("hint-confirmation").style.display = "none";
   const hintBox = document.getElementById("hintShow" + hintId);
   hintBox.style.display = "block";
   document.getElementById("hint-show-bg").style.display = "block";
@@ -61,6 +79,7 @@ function showHint(hintId) {
     updateGuessAndHintCount();
   }
 }
+
 
 function hideHint() {
   const hints = document.getElementsByClassName("hint-show");

@@ -49,7 +49,15 @@
         (Hints +<span id="hints-penalty-value">00:00</span>)
       </div>
     </div>
-    <div id="hint-show-bg" onclick="hideHint()">
+    <div id="hint-show-bg">
+      <div class="hint-show center" id="hint-confirmation">
+        <h2 class="hint-show-title">Show hint <span id="hint-confirmation-hintid"></span>?</h2>
+        <p>This will add 1:00 to your time.</p>
+        <div class="dialog-btn-container">
+          <div id="confirmation-btn-no" class="dialog-btn col1">No</div>
+          <div id="confirmation-btn-yes" class="dialog-btn col2">Yes</div>
+        </div>
+      </div>
       <!-- ┌────────┐ -->
       <!-- │ Hint 1 │ -->
       <!-- └────────┘ -->
@@ -57,6 +65,7 @@
         <span class="close-btn" onclick="hideHint()">&times;</span>
         <h2 class="hint-show-title">Hint 1</h2>
         <p class="hint-show-body">
+          Two provinces; Three cities; They're lost but hey, at least they're still together.
         </p>
       </div>
       <!-- ┌────────┐ -->
@@ -78,6 +87,7 @@
         <span class="close-btn" onclick="hideHint()">&times;</span>
         <h2 class="hint-show-title">Hint 3</h2>
         <p class="hint-show-body">
+          Does any particular word stand out?
         </p>
       </div>
       <!-- ┌────────┐ -->
@@ -87,6 +97,9 @@
         <span class="close-btn" onclick="hideHint()">&times;</span>
         <h2 class="hint-show-title">Hint 4</h2>
         <p class="hint-show-body">
+          Down: Breed of dog (8)
+          <br>
+          Across: Land with water on three sides (9)
         </p>
       </div>
       <!-- ┌────────┐ -->
@@ -106,9 +119,7 @@
         <span class="close-btn" onclick="hideHint()">&times;</span>
         <h2 class="hint-show-title">Hint 6</h2>
         <p class="hint-show-body">
-          <img src="../images/caesar_bust.png" class="hint-image"/>
-          <br>
-          "Hmmm, this code looks familiar"
+          There are two layers of codes here...
         </p>
       </div>
       <!-- ┌────────┐ -->
@@ -117,6 +128,9 @@
       <div class="hint-show center" id="hintShow7">
         <span class="close-btn" onclick="hideHint()">&times;</span>
         <h2 class="hint-show-title">Hint 7</h2>
+          <img src="../images/caesar_bust.png" class="hint-image"/>
+          <br>
+          "Hmmm, this code looks familiar"
         <p class="hint-show-body">
         </p>
       </div>
@@ -146,6 +160,7 @@
         <span class="close-btn" onclick="hideHint()">&times;</span>
         <h2 class="hint-show-title">Hint 10</h2>
         <p class="hint-show-body">
+          What if the corners want to be in the middle?
         </p>
       </div>
     </div> <!-- hint-show-bg -->
