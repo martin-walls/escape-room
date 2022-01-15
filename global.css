@@ -6,6 +6,18 @@ body {
   font-size: 200%;
 }
 
+a {
+  color: #00FF41;
+  text-decoration: none;
+  border: 2px solid #00FF41;
+  padding: 1rem;
+}
+
+a:hover {
+  background: rgba(0, 255, 65, 0.2);
+  cursor: pointer;
+}
+
 html, body {
   height: 100%;
 }
