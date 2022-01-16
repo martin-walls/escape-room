@@ -1,4 +1,4 @@
-const CODE_WORD = "SECRET";
+const CODE_WORD = "GEBURTSTAG";
 
 updateGuessAndHintCount();
 updateTimer();

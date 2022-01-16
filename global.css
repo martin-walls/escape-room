@@ -20,6 +20,7 @@ a:hover {
 
 html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 .center-container {
@@ -32,5 +33,4 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
