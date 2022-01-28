@@ -26,7 +26,8 @@
 
 #tigger-bouncing {
   bottom: 18%;
-  right: 20%;
+  right: 18%;
+  width: 20rem;
 }
 
 #pig-clapping {
@@ -48,7 +49,7 @@
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 24rem;
+  width: 28rem;
 }
 
 #happy-dance {
@@ -60,5 +61,5 @@
 #minion-dance {
   bottom: 2rem;
   left: 30%;
-  width: 25rem;
+  width: 30rem;
 }
