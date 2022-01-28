@@ -1,11 +1,10 @@
-const CODE_WORD = "GEBURTSTAG";
+const CODE_WORD = "R0VCVVJUU1RBRw==";
 
 updateGuessAndHintCount();
 updateTimer();
 
 function validate(inputbox) {
   if (event.key === "Enter") {
-    console.log(inputbox.value);
 
     const guess = inputbox.value.toUpperCase();
 
@@ -14,7 +13,7 @@ function validate(inputbox) {
 
     sessionStorage["num_guesses"] = JSON.parse(sessionStorage["num_guesses"]) + 1;
 
-    if (guess === CODE_WORD) {
+    if (guess === atob(CODE_WORD)) {
       // store end time
       sessionStorage["end_time"] = new Date();
       // redirect to well done page
@@ -44,9 +43,43 @@ function updateGuessAndHintCount() {
 
   const usedHints = JSON.parse(sessionStorage["used_hints"]);
   for (let i = 0; i < usedHints.length; i++) {
-    document.getElementById("hintBtn" + usedHints[i]).classList.add("hint-item-used");
+    const hintBtn = document.getElementById("hintBtn" + usedHints[i]);
+    if (hintBtn) {
+      hintBtn.classList.add("hint-item-used");
+    }
   }
+
+  // updatePreviousGuessDisplay();
 }
+
+// function updatePreviousGuessDisplay() {
+//   const previousGuessContainer = document.getElementById("previous-guesses");
+//   const shownPreviousGuesses = Array.from(previousGuessContainer.children);
+//   shownPreviousGuesses.forEach((item,index,arr) => {
+//     arr[index] = item.textContent;
+//   });
+//   // get list of previous guesses
+//   var previousGuesses = JSON.parse(sessionStorage["incorrect_guesses"]);
+
+//   var done = false;
+//   if (shownPreviousGuesses.length < previousGuesses.length && !done) {
+//     // if not all previous guesses have been added to the DOM
+//     // either a wrong guess has just been made, and we need to add it
+//     // or the page has been reloaded, and so we need to add them all.
+//     // either way, we can work our way from most recent guess and add each
+//     // guess to the DOM if it hasn't already. Stop as soon as we find one
+//     // that's already been added.
+//     mostRecentGuess = previousGuesses.pop();
+//     if (shownPreviousGuesses.includes(mostRecentGuess)) {
+//       done = true;
+//     } else {
+//       const node = document.createElement("span");
+//       const textnode = document.createTextNode(mostRecentGuess);
+//       node.appendChild(textnode);
+//       previousGuessContainer.appendChild(node);
+//     }
+//   }
+// }
 
 function showHint(hintId) {
   // don't show confirmation if hint has already been used
