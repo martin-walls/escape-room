@@ -17,8 +17,11 @@ h1 {
   text-transform: uppercase;
 }
 
-#instructions p {
+#instructions p, #instructions ul {
   text-align: left;
   width: 80vw;
 }
 
+#instructions li {
+  padding-bottom: 1rem;
+}
