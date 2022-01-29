@@ -22,7 +22,7 @@ minutes = leftPadZeros(minutes);
 
 document.getElementById("total-time").textContent = (hours > 0 ? hours + ":" : "") + minutes + ":" + seconds;
 
-document.getElementById("num-guesses").textContent = numGuesses;
+document.getElementById("num-guesses").textContent = numGuesses + 1;
 
 document.getElementById("num-hints").textContent = numHints;
 

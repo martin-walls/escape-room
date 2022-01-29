@@ -11,8 +11,6 @@ function validate(inputbox) {
     // clear input box
     inputbox.value = "";
 
-    sessionStorage["num_guesses"] = JSON.parse(sessionStorage["num_guesses"]) + 1;
-
     if (guess === atob(CODE_WORD)) {
       // store end time
       sessionStorage["end_time"] = new Date();
@@ -20,6 +18,8 @@ function validate(inputbox) {
       window.location.href = "/finish";
     } else {
       // wrong code
+      sessionStorage["num_guesses"] = JSON.parse(sessionStorage["num_guesses"]) + 1;
+
       document.getElementById("previous-guess").textContent = guess;
       document.getElementById("failed-attempt").style.visibility = "visible";
 
