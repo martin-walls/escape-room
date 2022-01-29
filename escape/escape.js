@@ -47,6 +47,11 @@ function updateGuessAndHintCount() {
     if (hintBtn) {
       hintBtn.classList.add("hint-item-used");
     }
+    const extraHintBtn = document.getElementById("extraHintBtn" + usedHints[i]);
+    if (extraHintBtn) {
+      extraHintBtn.style.display = "none";
+      document.getElementById("extraHint" + usedHints[i]).style.display = "block";
+    }
   }
 
   // updatePreviousGuessDisplay();
@@ -89,13 +94,17 @@ function showHint(hintId) {
     return;
   }
   // show confirmation
+  showHintConfirmationDialog(hintId, () => showHintConfirmed(hintId));
+}
+
+function showHintConfirmationDialog(hintId, onYes) {
   document.getElementById("hint-confirmation").style.display = "block";
   document.getElementById("hint-show-bg").style.display = "block";
   // set hintId in title
   document.getElementById("hint-confirmation-hintid").textContent = hintId;
   // set onclick functions for dialog buttons
   document.getElementById("confirmation-btn-no").onclick = () => hideHint();
-  document.getElementById("confirmation-btn-yes").onclick = () => showHintConfirmed(hintId);
+  document.getElementById("confirmation-btn-yes").onclick = onYes;
 }
 
 function showHintConfirmed(hintId) {
@@ -103,6 +112,10 @@ function showHintConfirmed(hintId) {
   const hintBox = document.getElementById("hintShow" + hintId);
   hintBox.style.display = "block";
   document.getElementById("hint-show-bg").style.display = "block";
+  addToUsedHints(hintId);
+}
+
+function addToUsedHints(hintId) {
   const usedHints = JSON.parse(sessionStorage["used_hints"]);
   if (!usedHints.includes(hintId)) {
     usedHints.push(hintId);
@@ -113,6 +126,18 @@ function showHintConfirmed(hintId) {
   }
 }
 
+function showExtraHint(hintId, baseHint) {
+  hideHint();
+  // don't need to check if hint used, this button isn't available
+  // anymore once the hint has been shown
+  showHintConfirmationDialog(hintId, () => {
+    document.getElementById("hint-confirmation").style.display = "none";
+    document.getElementById("extraHintBtn" + hintId).style.display = "none";
+    document.getElementById("extraHint" + hintId).style.display = "block";
+    showHint(baseHint);
+    addToUsedHints(hintId)
+  });
+}
 
 function hideHint() {
   const hints = document.getElementsByClassName("hint-show");

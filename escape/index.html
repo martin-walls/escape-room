@@ -26,14 +26,14 @@
       <div id="hints-container">
         <div class="hints-title">Hints</div>
         <div id="hintBtn1" class="hint-item" onclick="showHint('1')">1</div>
-        <div id="hintBtn2-1" class="hint-item" onclick="showHint('2-1')">2-1</div>
-        <div id="hintBtn2-2" class="hint-item" onclick="showHint('2-2')">2-2</div>
+        <div id="hintBtn2" class="hint-item" onclick="showHint('2')">2</div>
+        <!-- <div id="hintBtn2-2" class="hint-item" onclick="showHint('2-2')">2-2</div> -->
         <div id="hintBtn3" class="hint-item" onclick="showHint('3')">3</div>
         <div id="hintBtn4" class="hint-item" onclick="showHint('4')">4</div>
         <div id="hintBtn5" class="hint-item" onclick="showHint('5')">5</div>
         <div id="hintBtn6" class="hint-item" onclick="showHint('6')">6</div>
-        <div id="hintBtn7-1" class="hint-item" onclick="showHint('7-1')">7-1</div>
-        <div id="hintBtn7-2" class="hint-item" onclick="showHint('7-2')">7-2</div>
+        <div id="hintBtn7" class="hint-item" onclick="showHint('7')">7</div>
+        <!-- <div id="hintBtn7-2" class="hint-item" onclick="showHint('7-2')">7-2</div> -->
         <div id="hintBtn8" class="hint-item" onclick="showHint('8')">8</div>
         <div id="hintBtn9" class="hint-item" onclick="showHint('9')">9</div>
         <div id="hintBtn10" class="hint-item" onclick="showHint('10')">10</div>
@@ -79,22 +79,29 @@
       <!-- ┌────────┐ -->
       <!-- │ Hint 2 │ -->
       <!-- └────────┘ -->
-      <div class="hint-show center" id="hintShow2-1">
+      <div class="hint-show center" id="hintShow2">
         <span class="close-btn" onclick="hideHint()">&times;</span>
-        <h2 class="hint-show-title">Hint 2-1</h2>
+        <h2 class="hint-show-title">Hint 2</h2>
         <p class="hint-show-body">
           Oops, I dropped my deck of cards; I think I found them all though.
           <br>
           I put them into rows just to check...
         </p>
+        <hr>
+        <div class="btn extra-hint-btn" onclick="showExtraHint('2.1', '2')" id="extraHintBtn2.1">Show another hint for 2</div>
+        <div class="extra-hint" id="extraHint2.1">
+          <p class="hint-show-body">
+            This clue should lead you to a unique location.
+          </p>
+        </div>
       </div>
-      <div class="hint-show center" id="hintShow2-2">
-        <span class="close-btn" onclick="hideHint()">&times;</span>
-        <h2 class="hint-show-title">Hint 2-2</h2>
-        <p class="hint-show-body">
-          This clue should lead you to a unique location.
-        </p>
-      </div>
+      <!-- <div class="hint-show center" id="hintShow2-2"> -->
+      <!--   <span class="close-btn" onclick="hideHint()">&times;</span> -->
+      <!--   <h2 class="hint-show-title">Hint 2-2</h2> -->
+      <!--   <p class="hint-show-body"> -->
+      <!--     This clue should lead you to a unique location. -->
+      <!--   </p> -->
+      <!-- </div> -->
       <!-- ┌────────┐ -->
       <!-- │ Hint 3 │ -->
       <!-- └────────┘ -->
@@ -149,9 +156,9 @@
       <!-- ┌────────┐ -->
       <!-- │ Hint 7 │ -->
       <!-- └────────┘ -->
-      <div class="hint-show center" id="hintShow7-1">
+      <div class="hint-show center" id="hintShow7">
         <span class="close-btn" onclick="hideHint()">&times;</span>
-        <h2 class="hint-show-title">Hint 7-1</h2>
+        <h2 class="hint-show-title">Hint 7</h2>
           <!-- <img src="../images/caesar_bust.png" class="hint-image"/> -->
           <!-- <br> -->
           <!-- "Hmmm, this code looks familiar" -->
@@ -166,14 +173,21 @@
           <!-- Oh wait... am I getting distracted? -->
           Try sliding the letters by the same amount each.
         </p>
+        <hr>
+        <div class="btn extra-hint-btn" onclick="showExtraHint('7.1', '7')" id="extraHintBtn7.1">Show another hint for 7</div>
+        <div class="extra-hint" id="extraHint7.1">
+          <p class="hint-show-body">
+            This clue gives you two letters; they point you to somewhere else.
+          </p>
+        </div>
       </div>
-      <div class="hint-show center" id="hintShow7-2">
-        <span class="close-btn" onclick="hideHint()">&times;</span>
-        <h2 class="hint-show-title">Hint 7-2</h2>
-        <p class="hint-show-body">
-          This clue gives you two letters; they point you to somewhere else.
-        </p>
-      </div>
+      <!-- <div class="hint-show center" id="hintShow7-2"> -->
+      <!--   <span class="close-btn" onclick="hideHint()">&times;</span> -->
+      <!--   <h2 class="hint-show-title">Hint 7-2</h2> -->
+      <!--   <p class="hint-show-body"> -->
+      <!--     This clue gives you two letters; they point you to somewhere else. -->
+      <!--   </p> -->
+      <!-- </div> -->
       <!-- ┌────────┐ -->
       <!-- │ Hint 8 │ -->
       <!-- └────────┘ -->

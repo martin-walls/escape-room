@@ -146,3 +146,24 @@
   color: orange;
   font-size: 90%;
 }
+
+.btn {
+  color: #00FF41;
+  border: 2px solid rgba(0, 255, 65, 0.5);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+
+.btn:hover {
+  background: rgba(0, 255, 65, 0.2);
+  cursor: pointer;
+}
+
+.extra-hint-btn {
+  width: fit-content;
+  margin: 0.5rem auto;
+}
+
+.extra-hint {
+  display: none;
+}
