@@ -38,6 +38,7 @@
 
 #hints-container {
   width: 25rem;
+  /* border: 2px solid rgba(0, 255, 65, 0.5); */
   border: 2px solid #00ff41;
   display: flex;
   flex-wrap: wrap;
