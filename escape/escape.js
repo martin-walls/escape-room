@@ -5,6 +5,9 @@ updateTimer();
 
 function validate(inputbox) {
   if (event.key === "Enter") {
+    if (inputbox.value.length === 0) {
+      return;
+    }
 
     const guess = inputbox.value.toUpperCase();
 
