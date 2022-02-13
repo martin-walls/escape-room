@@ -3,6 +3,10 @@
   padding-bottom: 30px;
 }
 
+#time-display {
+  font-size: 150%;
+}
+
 .congrats-gif {
   width: 18rem;
   position: absolute;
